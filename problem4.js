@@ -60,42 +60,5 @@ function password(obj) {
     console.log("input 11",password({ name: "t" , birthYear: 2005, siteName: "bb" }));
 
 
-    // let student = {
-    //     name: "Ariana Grande",
-    //     age: 21,
-    //     city: "Gaibandha",
-    //     isStudent: true,
-    //   };      
-    //   console.log(Object.keys(student).length);
-      // PS C:\Projects\Log-18\object>  node practice4.js
-      // 4
-
-
-    //   let myObject = {
-    //     name: "John Doe",
-    //     age: 25,
-    //     city: "Example City",
-    //     isStudent: true,
-    //   };
-    //   for (const prop in myObject) {
-    //     console.log("key: " + prop + " | " + "type: " + typeof myObject[prop]);
-    //   }
-
-      // PS C:\Projects\Log-18\object>  node practice5.js
-        // key: name | type: string
-        // key: age | type: number
-        // key: city | type: string
-        // key: isStudent | type: boolean
-
- 
-    // const str = "abrakadabra";
-    // let counter = 0;
-    // for (let i = 0; i <= str.length; i++) {
-    //   if (str[i] === "a") {
-    //     counter++;
-    //   }
-    // }
-    //console.log(counter + " times");
-    // PS C:\Projects\Log-18\string> node practice1.js
-    // 5 times
+    
     
