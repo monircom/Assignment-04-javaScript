@@ -51,3 +51,74 @@ function deleteInvalids(array) {
     }
 
 
+    function password(obj) {
+
+        if ((typeof obj === "object") && (Object.keys(obj).length === 3) ) {       
+            let propArray = [];
+            for (const prop in obj) {
+                    propArray.push(prop);                
+                }        
+            if(typeof obj["birthYear"] != "number"){
+              return "Invalid";
+            }
+           
+            let birthYearLength =  obj["birthYear"].toString().length;   
+             if ((propArray[0] === "name") && (propArray[1]=== "birthYear") && (propArray[2]=== "siteName") && (birthYearLength === 4) && (obj["siteName"].length) && ((obj["name"].length)))
+             {
+              let strongPassword = "";
+                if(obj["siteName"]){
+                  const objSiteName = obj["siteName"];
+                  let firstChar = objSiteName[0].toUpperCase();
+                  let restChar = "";
+                  const siteNameLength = objSiteName.length;
+                  
+                  if(siteNameLength>1){
+                  restChar = objSiteName.slice(-(siteNameLength-1)).toLowerCase();
+                  }
+                  siteNameForPass = firstChar + restChar; 
+                  
+                  strongPassword = siteNameForPass;
+                }
+                strongPassword = strongPassword+'#'+obj["name"]+'@'+obj["birthYear"];            
+                return strongPassword;
+             }
+             else {
+                return "Invalid";
+             }
+        }
+        else {
+            return "Invalid";
+        }    
+    }
+
+
+    function monthlySavings(array , livingCost) {
+   
+        if ((Array.isArray(array)) && (typeof livingCost === "number") && (!isNaN(livingCost)) && (array.length>0) ) {
+        
+            let tax = 0 ;
+            let totalIncome = 0 ;
+            let savings = 0 ;
+            for(const money of array){
+                if((typeof money === "number") && (!isNaN(money)) ){                  
+                   totalIncome = totalIncome + money;
+                   if (money >= 3000){
+                    tax = tax + (money * .2);
+                   }          
+                }
+                else {
+                    return "invalid input";
+                }
+            }          
+         savings =   totalIncome - tax - livingCost;         
+         if (savings >= 0){           
+            return savings;
+         }
+         else {
+            return "Earn More";
+         }
+        }
+        else{
+            return "invalid input";
+        }    
+    }

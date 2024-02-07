@@ -24,10 +24,8 @@ function monthlySavings(array , livingCost) {
                 else {
                     return "invalid input";
                 }
-            }
-          
-         savings =   totalIncome - tax - livingCost;
-         
+            }          
+         savings =   totalIncome - tax - livingCost;         
          if (savings >= 0){           
             return savings;
          }
@@ -37,8 +35,7 @@ function monthlySavings(array , livingCost) {
         }
         else{
             return "invalid input";
-        }
-    
+        }    
     }
 
 
