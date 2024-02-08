@@ -18,7 +18,7 @@ function monthlySavings(array , livingCost) {
                 if((typeof money === "number") && (!isNaN(money)) ){                  
                    totalIncome = totalIncome + money;
                    if (money >= 3000){
-                    tax = tax + (money * .2);
+                    tax = tax + (money * ( 20 / 100 ));
                    }          
                 }
                 else {
@@ -51,3 +51,4 @@ console.log("input 9 : " , monthlySavings([ 10000 ] , 5000));
 console.log("input 10 : " , monthlySavings([  ] , 5000));
 console.log("input 11 : " , monthlySavings([ NaN ] , 5000));
 console.log("input 12 : " , monthlySavings([ 10353 ] , 5000));
+console.log("input 12 : " , monthlySavings([ 100 ] , 5000));

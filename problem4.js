@@ -6,31 +6,33 @@
 
 function password(obj) {
 
-    if ((typeof obj === "object") && (Object.keys(obj).length === 3) ) {       
+    if ((typeof obj === "object") && (Object.keys(obj).length === 3) ) {      
+              
+        if(typeof obj["name"] !== "string"){
+              return "Invalid";
+        }
+        if(typeof obj["siteName"] !== "string"){
+              return "Invalid";
+        }        
+            if(typeof obj["birthYear"] !== "number"){
+          return "Invalid";
+        }
+
+        let birthYearLength =  obj["birthYear"].toString().length;
+
         let propArray = [];
         for (const prop in obj) {
                 propArray.push(prop);                
-            }        
-        if(typeof obj["birthYear"] != "number"){
-          return "Invalid";
-        }
-       
-        let birthYearLength =  obj["birthYear"].toString().length;   
+            }  
+        
          if ((propArray[0] === "name") && (propArray[1]=== "birthYear") && (propArray[2]=== "siteName") && (birthYearLength === 4) && (obj["siteName"].length) && ((obj["name"].length)))
          {
           let strongPassword = "";
             if(obj["siteName"]){
               const objSiteName = obj["siteName"];
-              let firstChar = objSiteName[0].toUpperCase();
-              let restChar = "";
-              const siteNameLength = objSiteName.length;
-              
-              if(siteNameLength>1){
-              restChar = objSiteName.slice(-(siteNameLength-1)).toLowerCase();
-              }
-              siteNameForPass = firstChar + restChar; 
-              
-              strongPassword = siteNameForPass;
+              let firstChar = objSiteName[0].toUpperCase();            
+              let restOfChars = objSiteName.slice(1).toLowerCase();             
+              strongPassword = firstChar + restOfChars;
             }
             strongPassword = strongPassword+'#'+obj["name"]+'@'+obj["birthYear"];            
             return strongPassword;
@@ -56,8 +58,10 @@ function password(obj) {
     console.log("input 8",password({ name: "toky" , birthYear: 2000, siteName: "" }));
     console.log("input 9",password({ name: "" , birthYear: 2000, siteName: "goo" }));
     console.log("input 10",password({ name: "toky" , birthYear: "year", siteName: "google" }));
-    console.log("input 10",password({ name: "t" , birthYear: 2005, siteName: "b" }));
-    console.log("input 11",password({ name: "t" , birthYear: 2005, siteName: "bb" }));
+    console.log("input 11",password({ name: "t" , birthYear: 1000, siteName: "b" }));
+    console.log("input 12",password({ name: "t" , birthYear: 2005, siteName: "bb" }));
+    console.log("input 13",password({ name: [] , birthYear: 2005, siteName: "bb" }));
+    console.log("input 14",password({ name: "t" , birthYear: 2005, siteName: {} }));
 
 
     
